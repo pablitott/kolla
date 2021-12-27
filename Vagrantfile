@@ -11,7 +11,7 @@
 # commented are the lines to use if conditions
 ########################################################
 # -*- mode: ruby -*-
-require_relative 'Vagrant.rb'
+require_relative 'config/kolla.rb'
 include OpenStack
 
 Vagrant.configure("2") do |config|
@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
       node.vbguest.auto_update = VB_GUEST_UPDATE
       node.vbguest.installer_options = { allow_kernel_upgrade: VB_GUEST_UPDATE }
     end
-    
+
     node.vm.provider :virtualbox do |v|
       v.memory = VM_MEMORY
       v.name   = "#{VM_NAME}"
